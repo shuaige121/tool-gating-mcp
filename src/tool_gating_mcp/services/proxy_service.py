@@ -1,171 +1,145 @@
-"""Proxy Service for routing tool execution to backend MCP servers"""
+"""Proxy service for tool routing and backend execution forwarding."""
 
-from typing import Dict, Any, Set, Optional, List
+import json
+from dataclasses import dataclass
+from typing import Any
 
 from ..models.tool import Tool
 from .mcp_client_manager import MCPClientManager
 from .repository import InMemoryToolRepository
 
 
+@dataclass(frozen=True)
+class ToolRoute:
+    server_name: str
+    tool_name: str
+
+
 class ProxyService:
-    """Manages proxy operations for tool execution across MCP servers"""
-    
+    """Route tool calls to the right backend MCP server."""
+
     def __init__(
-        self, 
-        client_manager: MCPClientManager,
-        tool_repository: InMemoryToolRepository
-    ):
+        self, client_manager: MCPClientManager, tool_repository: InMemoryToolRepository
+    ) -> None:
         self.client_manager = client_manager
         self.tool_repository = tool_repository
-        self.provisioned_tools: Set[str] = set()
-    
-    async def discover_all_tools(self) -> None:
-        """Discover and index tools from all connected servers"""
-        for server_name, tools in self.client_manager.server_tools.items():
-            for tool in tools:
-                # Convert MCP tool to our Tool model
-                tool_obj = Tool(
-                    id=f"{server_name}_{tool.name}",
-                    name=getattr(tool, 'name', 'unknown'),
-                    description=getattr(tool, 'description', '') or "",
-                    parameters=getattr(tool, 'inputSchema', getattr(tool, 'parameters', {})) or {},
-                    server=server_name,
-                    tags=self._extract_tags(getattr(tool, 'description', '')),
-                    estimated_tokens=self._estimate_tokens(tool)
-                )
-                # Use sync version of add_tool
-                self.tool_repository.add_tool_sync(tool_obj)
-    
+        self.provisioned_tools: set[str] = set()
+        self._routes: dict[str, ToolRoute] = {}
+
+    async def discover_all_tools(self) -> int:
+        """Discover and index tools from all connected backend servers."""
+        discovered_count = 0
+        for server_name in self.client_manager.server_tools:
+            discovered_count += await self.discover_server_tools(server_name)
+        return discovered_count
+
+    async def discover_server_tools(self, server_name: str) -> int:
+        """Discover and index tools from one backend server."""
+        tools = self.client_manager.server_tools.get(server_name, [])
+        registered_count = 0
+
+        for raw_tool in tools:
+            tool_name = self._get_field(raw_tool, "name", "unknown")
+            if not tool_name:
+                continue
+            raw_description = self._get_field(raw_tool, "description")
+            if raw_description is None:
+                continue
+            description = str(raw_description)
+
+            tool_obj = Tool(
+                id=f"{server_name}_{tool_name}",
+                name=tool_name,
+                description=description,
+                parameters=(
+                    self._get_field(raw_tool, "inputSchema")
+                    or self._get_field(raw_tool, "parameters")
+                    or {}
+                ),
+                server=server_name,
+                tags=self._extract_tags(description),
+                estimated_tokens=self._estimate_tokens(raw_tool),
+            )
+            await self.tool_repository.add_tool(tool_obj)
+            self._routes[tool_obj.id] = ToolRoute(
+                server_name=server_name, tool_name=tool_name
+            )
+            registered_count += 1
+
+        return registered_count
+
     def provision_tool(self, tool_id: str) -> None:
-        """Mark a tool as provisioned for use
-        
-        Args:
-            tool_id: Tool identifier to provision
-        """
         self.provisioned_tools.add(tool_id)
-    
+
     def unprovision_tool(self, tool_id: str) -> None:
-        """Remove a tool from provisioned set
-        
-        Args:
-            tool_id: Tool identifier to unprovision
-        """
         self.provisioned_tools.discard(tool_id)
-    
+
     def is_provisioned(self, tool_id: str) -> bool:
-        """Check if a tool is provisioned
-        
-        Args:
-            tool_id: Tool identifier to check
-            
-        Returns:
-            True if provisioned, False otherwise
-        """
         return tool_id in self.provisioned_tools
-    
-    async def get_tool_execution_info(self, tool_id: str, arguments: dict) -> Dict[str, Any]:
-        """Get detailed information about what a tool execution will do
-        
-        Args:
-            tool_id: Tool identifier
-            arguments: Tool arguments
-            
-        Returns:
-            Dictionary with execution details
-        """
+
+    async def get_tool_execution_info(
+        self, tool_id: str, arguments: dict[str, Any]
+    ) -> dict[str, Any]:
         tool = self.tool_repository.get_tool(tool_id)
         if not tool:
             raise ValueError(f"Tool {tool_id} not found")
-        
-        # Build execution info
-        info = {
+
+        return {
             "tool_name": tool.name,
             "server": tool.server,
             "description": tool.description,
             "action_summary": self._generate_action_summary(tool, arguments),
             "estimated_tokens": tool.estimated_tokens,
-            "tags": tool.tags
+            "tags": tool.tags,
         }
-        
-        return info
-    
-    def _generate_action_summary(self, tool: Tool, arguments: dict) -> str:
-        """Generate a human-readable summary of what the tool will do
-        
-        Args:
-            tool: Tool object
-            arguments: Tool arguments
-            
-        Returns:
-            Action summary string
-        """
-        # Generate specific summaries based on tool patterns
-        if "search" in tool.name.lower():
+
+    async def execute_tool(self, tool_id: str, arguments: dict[str, Any]) -> Any:
+        """Execute a tool by routing it to the owning backend MCP server."""
+        route = self._routes.get(tool_id)
+        tool = self.tool_repository.get_tool(tool_id)
+
+        if route is None:
+            if tool is None:
+                raise ValueError(f"Tool {tool_id} not found in repository")
+            if not tool.server:
+                raise ValueError(f"Tool {tool_id} has no backend server mapping")
+            route = ToolRoute(server_name=tool.server, tool_name=tool.name)
+            self._routes[tool_id] = route
+
+        result = await self.client_manager.execute_tool(
+            route.server_name, route.tool_name, arguments
+        )
+        if tool is not None:
+            await self.tool_repository.increment_usage(tool.id)
+        return result
+
+    def _generate_action_summary(self, tool: Tool, arguments: dict[str, Any]) -> str:
+        tool_name = tool.name.lower()
+        if "search" in tool_name:
             query = arguments.get("query", "")
             return f"Will search for '{query}'"
-        elif "screenshot" in tool.name.lower():
+        if "screenshot" in tool_name:
             name = arguments.get("name", "screenshot")
             return f"Will capture screenshot '{name}'"
-        elif "write" in tool.name.lower():
+        if "write" in tool_name:
             title = arguments.get("title", "note")
             return f"Will write note '{title}'"
-        elif "research" in tool.name.lower():
+        if "research" in tool_name:
             target = arguments.get("query", "target")
             return f"Will research '{target}'"
-        else:
-            # Generic summary
-            return f"Will execute {tool.name} with provided arguments"
-    
-    async def execute_tool(self, tool_id: str, arguments: dict) -> Any:
-        """Execute a tool via proxy with real-time loading
-        
-        Args:
-            tool_id: Tool identifier (format: "servername_toolname")
-            arguments: Tool-specific arguments
-            
-        Returns:
-            Result from tool execution
-            
-        Raises:
-            ValueError: If tool not found or invalid format
-        """
-        # Parse server and tool name from ID
-        if '_' not in tool_id:
-            raise ValueError(f"Invalid tool ID format: {tool_id}")
-        
-        # Split only on first underscore to handle tool names with underscores
-        server_name, tool_name = tool_id.split('_', 1)
-        
-        # Verify tool exists in repository (for validation)
-        tool = self.tool_repository.get_tool(tool_id)
-        if not tool:
-            raise ValueError(f"Tool {tool_id} not found in repository")
-        
-        # Execute via client manager - real-time loading happens here
-        return await self.client_manager.execute_tool(server_name, tool_name, arguments)
-    
-    def _extract_tags(self, description: Optional[str]) -> List[str]:
-        """Extract tags from tool description
-        
-        Args:
-            description: Tool description text
-            
-        Returns:
-            List of extracted tags
-        """
+        return f"Will execute {tool.name} with provided arguments"
+
+    def _extract_tags(self, description: str | None) -> list[str]:
         if not description:
             return []
-        
-        # Simple tag extraction based on keywords
+
         tags = []
         keywords = ["search", "web", "browser", "file", "code", "api", "data"]
         desc_lower = description.lower()
-        
+
         for keyword in keywords:
             if keyword in desc_lower:
                 tags.append(keyword)
-        
-        # Add more specific tags based on common patterns
         if "screenshot" in desc_lower:
             tags.append("screenshot")
         if "navigate" in desc_lower or "navigation" in desc_lower:
@@ -176,19 +150,21 @@ class ProxyService:
             tags.append("write")
         if "documentation" in desc_lower or "docs" in desc_lower:
             tags.append("documentation")
-        
-        return list(set(tags))  # Remove duplicates
-    
+
+        return sorted(set(tags))
+
     def _estimate_tokens(self, tool: Any) -> int:
-        """Estimate token count for a tool
-        
-        Args:
-            tool: MCP tool object
-            
-        Returns:
-            Estimated token count
-        """
-        # Simple estimation based on description and schema size
-        desc_tokens = len(str(getattr(tool, 'description', '') or "").split()) * 1.3
-        schema_tokens = len(str(getattr(tool, 'inputSchema', {}) or {}).split()) * 1.3
-        return int(desc_tokens + schema_tokens + 50)  # Base overhead
+        description = self._get_field(tool, "description", "") or ""
+        schema = (
+            self._get_field(tool, "inputSchema")
+            or self._get_field(tool, "parameters")
+            or {}
+        )
+        desc_tokens = len(description.split()) * 1.3
+        schema_tokens = len(json.dumps(schema, ensure_ascii=True)) / 4
+        return int(desc_tokens + schema_tokens + 50)
+
+    def _get_field(self, source: Any, field: str, default: Any = None) -> Any:
+        if isinstance(source, dict):
+            return source.get(field, default)
+        return getattr(source, field, default)

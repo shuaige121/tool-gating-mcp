@@ -52,35 +52,13 @@ class Settings(BaseSettings):
 # Global settings instance
 settings = Settings()
 
-# MCP Server Configurations
-# Include all MCP servers from Claude Desktop (except tool-gating itself)
-MCP_SERVERS = {
-    "context7": {
-        "command": "npx",
-        "args": ["-y", "@upstash/context7-mcp@latest"],
-        "description": "Documentation search and library information",
-        "env": {}
-    },
-    "basic-memory": {
-        "command": "/Users/andremachon/.local/bin/uvx",
-        "args": ["basic-memory", "mcp"],
-        "description": "Simple key-value memory storage",
-        "env": {}
-    },
-    "puppeteer": {
-        "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/server-puppeteer"],
-        "description": "Browser automation and web scraping",
-        "env": {}
-    },
-    "exa": {
-        "command": "exa-mcp-server",
-        "args": [
-            "--tools=web_search_exa,research_paper_search,twitter_search,company_research,crawling,competitor_finder,linkedin_search"
-        ],
-        "description": "Web search, research, and social media tools",
-        "env": {
-            "EXA_API_KEY": "b2491db3-f3de-4b99-a510-a6b81a179cdb"
-        }
-    }
-}
+# MCP Server Configurations - loaded from mcp-servers.json
+def _load_mcp_servers() -> dict:
+    import json
+    servers_path = Path(settings.mcp_servers_path)
+    if servers_path.exists():
+        with open(servers_path) as f:
+            return json.load(f)
+    return {}
+
+MCP_SERVERS = _load_mcp_servers()

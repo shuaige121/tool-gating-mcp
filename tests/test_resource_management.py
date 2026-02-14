@@ -148,7 +148,11 @@ class TestPerformanceConstraints:
         import httpx
         
         async def make_discovery_request(query):
-            async with httpx.AsyncClient(app=client.app, base_url="http://test") as ac:
+            transport = httpx.ASGITransport(app=client.app)
+            async with httpx.AsyncClient(
+                transport=transport,
+                base_url="http://test",
+            ) as ac:
                 response = await ac.post("/api/tools/discover", json={
                     "query": query,
                     "limit": 3

@@ -17,6 +17,10 @@ class InMemoryToolRepository:
         """Get all tools in the repository."""
         return list(self._tools.values())
 
+    async def get_all_tools(self) -> list[Tool]:
+        """Backward-compatible alias used by legacy tests/helpers."""
+        return await self.get_all()
+
     async def get_by_ids(self, tool_ids: list[str]) -> list[Tool]:
         """Get tools by their IDs."""
         return [self._tools[tool_id] for tool_id in tool_ids if tool_id in self._tools]

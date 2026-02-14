@@ -17,7 +17,12 @@ class ToolDiscoveryRequest(BaseModel):
         None, description="Additional context from conversation"
     )
     tags: list[str] | None = Field(None, description="Filter by specific tags")
-    limit: int | None = Field(10, ge=1, le=50, description="Maximum tools to return")
+    limit: int | None = Field(
+        None,
+        ge=1,
+        le=50,
+        description="Maximum tools to return",
+    )
 
     @field_validator("query")
     @classmethod

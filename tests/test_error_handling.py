@@ -364,18 +364,14 @@ class TestMalformedDataHandling:
         ]
         
         for malformed_json in malformed_requests:
-            # Using raw requests since TestClient handles JSON parsing
-            import httpx
-            
-            with httpx.Client(app=client.app, base_url="http://test") as c:
-                response = c.post(
-                    "/api/tools/discover",
-                    content=malformed_json,
-                    headers={"Content-Type": "application/json"}
-                )
-                
-                # Should reject malformed JSON
-                assert response.status_code in [400, 422]
+            response = client.post(
+                "/api/tools/discover",
+                content=malformed_json,
+                headers={"Content-Type": "application/json"},
+            )
+
+            # Should reject malformed JSON
+            assert response.status_code in [400, 422]
 
 
 class TestRecoveryScenarios:

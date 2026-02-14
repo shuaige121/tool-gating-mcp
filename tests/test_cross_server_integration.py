@@ -536,7 +536,11 @@ class TestPerformanceWithMultipleServers:
         import httpx
         
         async def discover_tools(query_suffix):
-            async with httpx.AsyncClient(app=client.app, base_url="http://test") as ac:
+            transport = httpx.ASGITransport(app=client.app)
+            async with httpx.AsyncClient(
+                transport=transport,
+                base_url="http://test",
+            ) as ac:
                 response = await ac.post("/api/tools/discover", json={
                     "query": f"concurrent operation {query_suffix}",
                     "limit": 5

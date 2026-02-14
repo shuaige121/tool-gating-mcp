@@ -14,7 +14,9 @@ class MCPServerConfig(BaseModel):
         default_factory=dict, description="Environment variables"
     )
 
-    model_config = {"extra": "allow"}  # Allow additional fields for future compatibility
+    model_config = {
+        "extra": "allow",
+    }  # Allow additional fields for future compatibility
 
 
 class MCPServerRegistration(BaseModel):
