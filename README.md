@@ -300,6 +300,39 @@ pytest tests/test_integration.py -v
 4. **Real-time Loading**: Tools are validated and loaded on-demand during execution
 5. **MCP Formatting**: Selected tools are formatted according to MCP protocol
 
+
+## 🔀 Proxy Layer (v0.3.0)
+
+The proxy layer enables Tool Gating MCP to maintain persistent connections to backend MCP servers and transparently route tool execution requests.
+
+### Components
+
+- **MCPClientManager** — Manages persistent stdio connections to backend MCP servers. Starts connections on first use, caches `ClientSession` instances, and handles lifecycle (connect/disconnect/reconnect).
+- **ProxyService** — Routes `execute_tool` calls to the correct backend server via a `tool_id → (server_name, tool_name)` mapping. Performs startup-time tool indexing across all backends.
+- **Transparent Execution** — `/api/proxy/execute` endpoint forwards tool calls to the appropriate backend, preserving the existing API contract.
+
+### How It Works
+
+1. On startup, `ProxyService` connects to all configured backends via `MCPClientManager`
+2. Each backend's tools are discovered (`list_tools`) and indexed into the shared `InMemoryToolRepository`
+3. When a tool execution request arrives, the proxy resolves the target backend and forwards the call via the persistent session
+4. New backends added via `/api/mcp/add_server` trigger incremental tool discovery
+
+### Configuration
+
+Backend servers are defined in `mcp-servers.json`:
+
+```json
+{
+  "servers": {
+    "my-backend": {
+      "command": "uvx",
+      "args": ["my-mcp-server"]
+    }
+  }
+}
+```
+
 ## 🔧 Configuration
 
 The system uses sensible defaults but can be configured:
