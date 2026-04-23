@@ -1,598 +1,0 @@
-INFO:fastapi_mcp.server:No auth config provided, skipping auth setup
-INFO:fastapi_mcp.server:MCP server listening at /mcp
-INFO:     Will watch for changes in these directories: ['/Users/andremachon/Projects/tool-gating-mcp']
-INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [51133] using WatchFiles
-INFO:watchfiles.main:2 changes detected
-INFO:fastapi_mcp.server:No auth config provided, skipping auth setup
-INFO:fastapi_mcp.server:MCP server listening at /mcp
-INFO:     Started server process [51164]
-INFO:     Waiting for application startup.
-INFO:tool_gating_mcp.main:Starting Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Connecting to MCP servers...
-INFO:tool_gating_mcp.main:Connecting to context7: Documentation search and library information
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for context7
-Context7 Documentation MCP Server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 2 tools from context7
-INFO:tool_gating_mcp.main:✓ Successfully connected to context7
-INFO:tool_gating_mcp.main:Connecting to basic-memory: Simple key-value memory storage
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 9 tools from basic-memory
-INFO:tool_gating_mcp.main:✓ Successfully connected to basic-memory
-INFO:tool_gating_mcp.main:Connecting to puppeteer: Browser automation and web scraping
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for puppeteer
-/Users/andremachon/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:255: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from puppeteer
-INFO:tool_gating_mcp.main:✓ Successfully connected to puppeteer
-INFO:tool_gating_mcp.main:Connecting to exa: Web search, research, and social media tools
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for exa
-[EXA-MCP-DEBUG] Server initialized
-[EXA-MCP-DEBUG] Starting Exa MCP server with 7 tools: web_search_exa, research_paper_search, twitter_search, company_research, crawling, competitor_finder, linkedin_search
-[EXA-MCP-DEBUG] Exa Search MCP server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from exa
-INFO:tool_gating_mcp.main:✓ Successfully connected to exa
-INFO:tool_gating_mcp.main:Proxy initialization complete
-INFO:     Application startup complete.
-INFO:watchfiles.main:35 changes detected
-INFO:watchfiles.main:33 changes detected
-INFO:watchfiles.main:2 changes detected
-INFO:     127.0.0.1:49911 - "GET /mcp HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49913 - "POST /mcp/messages/?session_id=2b41d52f0ad14e34b01b235656d83786 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:49913 - "POST /mcp/messages/?session_id=2b41d52f0ad14e34b01b235656d83786 HTTP/1.1" 202 Accepted
-INFO:     127.0.0.1:49913 - "POST /mcp/messages/?session_id=2b41d52f0ad14e34b01b235656d83786 HTTP/1.1" 202 Accepted
-INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
-INFO:     127.0.0.1:50059 - "POST /mcp/messages/?session_id=2b41d52f0ad14e34b01b235656d83786 HTTP/1.1" 202 Accepted
-INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
-INFO:httpx:HTTP Request: GET http://apiserver/api/mcp/servers "HTTP/1.1 200 OK"
-INFO:     127.0.0.1:50076 - "POST /mcp/messages/?session_id=2b41d52f0ad14e34b01b235656d83786 HTTP/1.1" 202 Accepted
-INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
-INFO:sentence_transformers.SentenceTransformer:Use pytorch device_name: mps
-INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  5.98it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  5.97it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 16.01it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 18.87it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 16.99it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 17.98it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 19.72it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 22.05it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 11.46it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 18.89it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 19.70it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 119.06it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 116.93it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 20.08it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 22.31it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 115.18it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 19.74it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 103.61it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 18.69it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 85.02it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 20.85it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 92.49it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 137.44it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 22.21it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 22.28it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 20.09it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 19.72it/s]
-INFO:httpx:HTTP Request: POST http://apiserver/api/tools/discover "HTTP/1.1 200 OK"
-INFO:     127.0.0.1:50150 - "POST /mcp/messages/?session_id=2b41d52f0ad14e34b01b235656d83786 HTTP/1.1" 202 Accepted
-INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
-INFO:httpx:HTTP Request: POST http://apiserver/api/tools/provision "HTTP/1.1 200 OK"
-INFO:watchfiles.main:1 change detected
-INFO:     127.0.0.1:50207 - "POST /mcp/messages/?session_id=2b41d52f0ad14e34b01b235656d83786 HTTP/1.1" 202 Accepted
-INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
-INFO:httpx:HTTP Request: POST http://apiserver/api/tools/provision "HTTP/1.1 200 OK"
-INFO:     127.0.0.1:50271 - "POST /mcp/messages/?session_id=2b41d52f0ad14e34b01b235656d83786 HTTP/1.1" 202 Accepted
-INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
-INFO:httpx:HTTP Request: POST http://apiserver/api/tools/provision "HTTP/1.1 200 OK"
-INFO:     127.0.0.1:50353 - "POST /mcp/messages/?session_id=2b41d52f0ad14e34b01b235656d83786 HTTP/1.1" 202 Accepted
-INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
-INFO:sentence_transformers.SentenceTransformer:Use pytorch device_name: mps
-INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 47.96it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 31.34it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 98.23it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 84.45it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 110.61it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 85.65it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 95.20it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 67.32it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 76.65it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 92.39it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 123.75it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 108.97it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 79.75it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 93.08it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 123.96it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 114.35it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 115.45it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 101.06it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 129.19it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 74.34it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 51.78it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 106.20it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 78.59it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 120.63it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 93.52it/s]
-Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 68.37it/s]
-INFO:httpx:HTTP Request: POST http://apiserver/api/tools/discover "HTTP/1.1 200 OK"
-INFO:     127.0.0.1:50449 - "POST /mcp/messages/?session_id=2b41d52f0ad14e34b01b235656d83786 HTTP/1.1" 202 Accepted
-INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
-INFO:httpx:HTTP Request: POST http://apiserver/api/tools/provision "HTTP/1.1 200 OK"
-INFO:     127.0.0.1:50523 - "POST /mcp/messages/?session_id=2b41d52f0ad14e34b01b235656d83786 HTTP/1.1" 202 Accepted
-INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
-INFO:httpx:HTTP Request: POST http://apiserver/api/tools/provision "HTTP/1.1 200 OK"
-INFO:     127.0.0.1:50600 - "POST /mcp/messages/?session_id=2b41d52f0ad14e34b01b235656d83786 HTTP/1.1" 202 Accepted
-INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
-INFO:httpx:HTTP Request: POST http://apiserver/api/tools/provision "HTTP/1.1 200 OK"
-INFO:     127.0.0.1:51048 - "POST /mcp/messages/?session_id=2b41d52f0ad14e34b01b235656d83786 HTTP/1.1" 202 Accepted
-INFO:mcp.server.lowlevel.server:Processing request of type CallToolRequest
-INFO:httpx:HTTP Request: POST http://apiserver/api/tools/provision "HTTP/1.1 200 OK"
-INFO:watchfiles.main:8 changes detected
-INFO:watchfiles.main:1 change detected
-WARNING:  WatchFiles detected changes in 'src/tool_gating_mcp/services/proxy_service.py'. Reloading...
-ERROR:    Exception in ASGI application
-Traceback (most recent call last):
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 409, in run_asgi
-    result = await app(  # type: ignore[func-returns-value]
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
-    return await self.app(scope, receive, send)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/fastapi/applications.py", line 1054, in __call__
-    await super().__call__(scope, receive, send)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/applications.py", line 112, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 187, in __call__
-    raise exc
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 165, in __call__
-    await self.app(scope, receive, _send)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
-    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/routing.py", line 714, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/routing.py", line 734, in app
-    await route.handle(scope, receive, send)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/routing.py", line 288, in handle
-    await self.app(scope, receive, send)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/routing.py", line 76, in app
-    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
-    raise exc
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
-    await app(scope, receive, sender)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/routing.py", line 74, in app
-    await response(scope, receive, send)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/responses.py", line 150, in __call__
-    await send(
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 39, in sender
-    await send(message)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 39, in sender
-    await send(message)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in _send
-    await send(message)
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 517, in send
-    raise RuntimeError(msg % message_type)
-RuntimeError: Expected ASGI message 'http.response.body', but got 'http.response.start'.
-INFO:     Shutting down
-INFO:     Waiting for application shutdown.
-INFO:tool_gating_mcp.main:Shutting down Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Shutdown complete
-INFO:     Application shutdown complete.
-INFO:     Finished server process [51164]
-INFO:fastapi_mcp.server:No auth config provided, skipping auth setup
-INFO:fastapi_mcp.server:MCP server listening at /mcp
-INFO:watchfiles.main:3 changes detected
-INFO:     Started server process [53318]
-INFO:     Waiting for application startup.
-INFO:tool_gating_mcp.main:Starting Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Connecting to MCP servers...
-INFO:tool_gating_mcp.main:Connecting to context7: Documentation search and library information
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for context7
-Context7 Documentation MCP Server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 2 tools from context7
-INFO:tool_gating_mcp.main:✓ Successfully connected to context7
-INFO:tool_gating_mcp.main:Connecting to basic-memory: Simple key-value memory storage
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 9 tools from basic-memory
-INFO:tool_gating_mcp.main:✓ Successfully connected to basic-memory
-INFO:tool_gating_mcp.main:Connecting to puppeteer: Browser automation and web scraping
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for puppeteer
-/Users/andremachon/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:255: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from puppeteer
-INFO:tool_gating_mcp.main:✓ Successfully connected to puppeteer
-INFO:tool_gating_mcp.main:Connecting to exa: Web search, research, and social media tools
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for exa
-[EXA-MCP-DEBUG] Server initialized
-[EXA-MCP-DEBUG] Starting Exa MCP server with 7 tools: web_search_exa, research_paper_search, twitter_search, company_research, crawling, competitor_finder, linkedin_search
-[EXA-MCP-DEBUG] Exa Search MCP server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from exa
-INFO:tool_gating_mcp.main:✓ Successfully connected to exa
-INFO:tool_gating_mcp.main:Proxy initialization complete
-INFO:     Application startup complete.
-INFO:watchfiles.main:1 change detected
-WARNING:  WatchFiles detected changes in 'src/tool_gating_mcp/services/proxy_service.py'. Reloading...
-INFO:     Shutting down
-INFO:     Waiting for application shutdown.
-INFO:tool_gating_mcp.main:Shutting down Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Shutdown complete
-INFO:     Application shutdown complete.
-INFO:     Finished server process [53318]
-INFO:fastapi_mcp.server:No auth config provided, skipping auth setup
-INFO:fastapi_mcp.server:MCP server listening at /mcp
-INFO:     Started server process [53384]
-INFO:     Waiting for application startup.
-INFO:tool_gating_mcp.main:Starting Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Connecting to MCP servers...
-INFO:tool_gating_mcp.main:Connecting to context7: Documentation search and library information
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for context7
-INFO:watchfiles.main:3 changes detected
-Context7 Documentation MCP Server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 2 tools from context7
-INFO:tool_gating_mcp.main:✓ Successfully connected to context7
-INFO:tool_gating_mcp.main:Connecting to basic-memory: Simple key-value memory storage
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 9 tools from basic-memory
-INFO:tool_gating_mcp.main:✓ Successfully connected to basic-memory
-INFO:tool_gating_mcp.main:Connecting to puppeteer: Browser automation and web scraping
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for puppeteer
-/Users/andremachon/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:255: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from puppeteer
-INFO:tool_gating_mcp.main:✓ Successfully connected to puppeteer
-INFO:tool_gating_mcp.main:Connecting to exa: Web search, research, and social media tools
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for exa
-[EXA-MCP-DEBUG] Server initialized
-[EXA-MCP-DEBUG] Starting Exa MCP server with 7 tools: web_search_exa, research_paper_search, twitter_search, company_research, crawling, competitor_finder, linkedin_search
-[EXA-MCP-DEBUG] Exa Search MCP server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from exa
-INFO:tool_gating_mcp.main:✓ Successfully connected to exa
-INFO:tool_gating_mcp.main:Proxy initialization complete
-INFO:     Application startup complete.
-INFO:watchfiles.main:1 change detected
-WARNING:  WatchFiles detected changes in 'src/tool_gating_mcp/api/proxy.py'. Reloading...
-INFO:     Shutting down
-INFO:     Waiting for application shutdown.
-INFO:tool_gating_mcp.main:Shutting down Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Shutdown complete
-INFO:     Application shutdown complete.
-INFO:     Finished server process [53384]
-Traceback (most recent call last):
-  File "<string>", line 1, in <module>
-  File "/Users/andremachon/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/multiprocessing/spawn.py", line 122, in spawn_main
-    exitcode = _main(fd, parent_sentinel)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/andremachon/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/multiprocessing/spawn.py", line 131, in _main
-    prepare(preparation_data)
-  File "/Users/andremachon/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/multiprocessing/spawn.py", line 246, in prepare
-    _fixup_main_from_path(data['init_main_from_path'])
-  File "/Users/andremachon/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/multiprocessing/spawn.py", line 297, in _fixup_main_from_path
-    main_content = runpy.run_path(main_path,
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<frozen runpy>", line 287, in run_path
-  File "<frozen runpy>", line 98, in _run_module_code
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/andremachon/Projects/tool-gating-mcp/.venv/bin/tool-gating-mcp", line 4, in <module>
-    from tool_gating_mcp import main
-  File "/Users/andremachon/Projects/tool-gating-mcp/src/tool_gating_mcp/__init__.py", line 6, in <module>
-    from .main import app as app
-  File "/Users/andremachon/Projects/tool-gating-mcp/src/tool_gating_mcp/main.py", line 11, in <module>
-    from .api import mcp, tools, proxy
-  File "/Users/andremachon/Projects/tool-gating-mcp/src/tool_gating_mcp/api/__init__.py", line 4, in <module>
-    from . import mcp, proxy, tools
-  File "/Users/andremachon/Projects/tool-gating-mcp/src/tool_gating_mcp/api/proxy.py", line 30, in <module>
-    class ToolExecutionInfoResponse(BaseModel):
-  File "/Users/andremachon/Projects/tool-gating-mcp/src/tool_gating_mcp/api/proxy.py", line 37, in ToolExecutionInfoResponse
-    tags: List[str]
-          ^^^^
-NameError: name 'List' is not defined. Did you mean: 'list'?
-INFO:watchfiles.main:3 changes detected
-INFO:watchfiles.main:1 change detected
-WARNING:  WatchFiles detected changes in 'src/tool_gating_mcp/api/proxy.py'. Reloading...
-INFO:fastapi_mcp.server:No auth config provided, skipping auth setup
-INFO:fastapi_mcp.server:MCP server listening at /mcp
-INFO:     Started server process [53463]
-INFO:     Waiting for application startup.
-INFO:tool_gating_mcp.main:Starting Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Connecting to MCP servers...
-INFO:tool_gating_mcp.main:Connecting to context7: Documentation search and library information
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for context7
-INFO:watchfiles.main:3 changes detected
-Context7 Documentation MCP Server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 2 tools from context7
-INFO:tool_gating_mcp.main:✓ Successfully connected to context7
-INFO:tool_gating_mcp.main:Connecting to basic-memory: Simple key-value memory storage
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 9 tools from basic-memory
-INFO:tool_gating_mcp.main:✓ Successfully connected to basic-memory
-INFO:tool_gating_mcp.main:Connecting to puppeteer: Browser automation and web scraping
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for puppeteer
-/Users/andremachon/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:255: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from puppeteer
-INFO:tool_gating_mcp.main:✓ Successfully connected to puppeteer
-INFO:tool_gating_mcp.main:Connecting to exa: Web search, research, and social media tools
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for exa
-[EXA-MCP-DEBUG] Server initialized
-[EXA-MCP-DEBUG] Starting Exa MCP server with 7 tools: web_search_exa, research_paper_search, twitter_search, company_research, crawling, competitor_finder, linkedin_search
-[EXA-MCP-DEBUG] Exa Search MCP server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from exa
-INFO:tool_gating_mcp.main:✓ Successfully connected to exa
-INFO:tool_gating_mcp.main:Proxy initialization complete
-INFO:     Application startup complete.
-INFO:watchfiles.main:1 change detected
-WARNING:  WatchFiles detected changes in 'src/tool_gating_mcp/api/proxy.py'. Reloading...
-INFO:     Shutting down
-INFO:     Waiting for application shutdown.
-INFO:tool_gating_mcp.main:Shutting down Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Shutdown complete
-INFO:     Application shutdown complete.
-INFO:     Finished server process [53463]
-INFO:fastapi_mcp.server:No auth config provided, skipping auth setup
-INFO:fastapi_mcp.server:MCP server listening at /mcp
-INFO:     Started server process [53516]
-INFO:     Waiting for application startup.
-INFO:tool_gating_mcp.main:Starting Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Connecting to MCP servers...
-INFO:tool_gating_mcp.main:Connecting to context7: Documentation search and library information
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for context7
-INFO:watchfiles.main:3 changes detected
-Context7 Documentation MCP Server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 2 tools from context7
-INFO:tool_gating_mcp.main:✓ Successfully connected to context7
-INFO:tool_gating_mcp.main:Connecting to basic-memory: Simple key-value memory storage
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 9 tools from basic-memory
-INFO:tool_gating_mcp.main:✓ Successfully connected to basic-memory
-INFO:tool_gating_mcp.main:Connecting to puppeteer: Browser automation and web scraping
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for puppeteer
-/Users/andremachon/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:255: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from puppeteer
-INFO:tool_gating_mcp.main:✓ Successfully connected to puppeteer
-INFO:tool_gating_mcp.main:Connecting to exa: Web search, research, and social media tools
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for exa
-[EXA-MCP-DEBUG] Server initialized
-[EXA-MCP-DEBUG] Starting Exa MCP server with 7 tools: web_search_exa, research_paper_search, twitter_search, company_research, crawling, competitor_finder, linkedin_search
-[EXA-MCP-DEBUG] Exa Search MCP server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from exa
-INFO:tool_gating_mcp.main:✓ Successfully connected to exa
-INFO:tool_gating_mcp.main:Proxy initialization complete
-INFO:     Application startup complete.
-INFO:watchfiles.main:1 change detected
-WARNING:  WatchFiles detected changes in 'tests/test_proxy_integration.py'. Reloading...
-INFO:     Shutting down
-INFO:     Waiting for application shutdown.
-INFO:tool_gating_mcp.main:Shutting down Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Shutdown complete
-INFO:     Application shutdown complete.
-INFO:     Finished server process [53516]
-INFO:fastapi_mcp.server:No auth config provided, skipping auth setup
-INFO:fastapi_mcp.server:MCP server listening at /mcp
-INFO:     Started server process [53570]
-INFO:     Waiting for application startup.
-INFO:tool_gating_mcp.main:Starting Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Connecting to MCP servers...
-INFO:tool_gating_mcp.main:Connecting to context7: Documentation search and library information
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for context7
-Context7 Documentation MCP Server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 2 tools from context7
-INFO:tool_gating_mcp.main:✓ Successfully connected to context7
-INFO:tool_gating_mcp.main:Connecting to basic-memory: Simple key-value memory storage
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 9 tools from basic-memory
-INFO:tool_gating_mcp.main:✓ Successfully connected to basic-memory
-INFO:tool_gating_mcp.main:Connecting to puppeteer: Browser automation and web scraping
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for puppeteer
-/Users/andremachon/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:255: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from puppeteer
-INFO:tool_gating_mcp.main:✓ Successfully connected to puppeteer
-INFO:tool_gating_mcp.main:Connecting to exa: Web search, research, and social media tools
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for exa
-[EXA-MCP-DEBUG] Server initialized
-[EXA-MCP-DEBUG] Starting Exa MCP server with 7 tools: web_search_exa, research_paper_search, twitter_search, company_research, crawling, competitor_finder, linkedin_search
-[EXA-MCP-DEBUG] Exa Search MCP server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from exa
-INFO:tool_gating_mcp.main:✓ Successfully connected to exa
-INFO:tool_gating_mcp.main:Proxy initialization complete
-INFO:     Application startup complete.
-INFO:watchfiles.main:1 change detected
-WARNING:  WatchFiles detected changes in 'tests/test_proxy_integration.py'. Reloading...
-INFO:     Shutting down
-INFO:     Waiting for application shutdown.
-INFO:tool_gating_mcp.main:Shutting down Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Shutdown complete
-INFO:     Application shutdown complete.
-INFO:     Finished server process [53570]
-INFO:fastapi_mcp.server:No auth config provided, skipping auth setup
-INFO:fastapi_mcp.server:MCP server listening at /mcp
-INFO:     Started server process [53630]
-INFO:     Waiting for application startup.
-INFO:tool_gating_mcp.main:Starting Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Connecting to MCP servers...
-INFO:tool_gating_mcp.main:Connecting to context7: Documentation search and library information
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for context7
-Context7 Documentation MCP Server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 2 tools from context7
-INFO:tool_gating_mcp.main:✓ Successfully connected to context7
-INFO:tool_gating_mcp.main:Connecting to basic-memory: Simple key-value memory storage
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 9 tools from basic-memory
-INFO:tool_gating_mcp.main:✓ Successfully connected to basic-memory
-INFO:tool_gating_mcp.main:Connecting to puppeteer: Browser automation and web scraping
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for puppeteer
-/Users/andremachon/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:255: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from puppeteer
-INFO:tool_gating_mcp.main:✓ Successfully connected to puppeteer
-INFO:tool_gating_mcp.main:Connecting to exa: Web search, research, and social media tools
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for exa
-[EXA-MCP-DEBUG] Server initialized
-[EXA-MCP-DEBUG] Starting Exa MCP server with 7 tools: web_search_exa, research_paper_search, twitter_search, company_research, crawling, competitor_finder, linkedin_search
-[EXA-MCP-DEBUG] Exa Search MCP server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from exa
-INFO:tool_gating_mcp.main:✓ Successfully connected to exa
-INFO:tool_gating_mcp.main:Proxy initialization complete
-INFO:     Application startup complete.
-INFO:watchfiles.main:1 change detected
-WARNING:  WatchFiles detected changes in 'scripts/test_real_time_execution.py'. Reloading...
-INFO:     Shutting down
-INFO:     Waiting for application shutdown.
-INFO:tool_gating_mcp.main:Shutting down Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Shutdown complete
-INFO:     Application shutdown complete.
-INFO:     Finished server process [53630]
-INFO:watchfiles.main:1 change detected
-WARNING:  WatchFiles detected changes in 'scripts/test_real_time_execution.py'. Reloading...
-INFO:fastapi_mcp.server:No auth config provided, skipping auth setup
-INFO:fastapi_mcp.server:MCP server listening at /mcp
-INFO:     Started server process [53702]
-INFO:     Waiting for application startup.
-INFO:tool_gating_mcp.main:Starting Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Connecting to MCP servers...
-INFO:tool_gating_mcp.main:Connecting to context7: Documentation search and library information
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for context7
-Context7 Documentation MCP Server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 2 tools from context7
-INFO:tool_gating_mcp.main:✓ Successfully connected to context7
-INFO:tool_gating_mcp.main:Connecting to basic-memory: Simple key-value memory storage
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 9 tools from basic-memory
-INFO:tool_gating_mcp.main:✓ Successfully connected to basic-memory
-INFO:tool_gating_mcp.main:Connecting to puppeteer: Browser automation and web scraping
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for puppeteer
-/Users/andremachon/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:255: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from puppeteer
-INFO:tool_gating_mcp.main:✓ Successfully connected to puppeteer
-INFO:tool_gating_mcp.main:Connecting to exa: Web search, research, and social media tools
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for exa
-[EXA-MCP-DEBUG] Server initialized
-[EXA-MCP-DEBUG] Starting Exa MCP server with 7 tools: web_search_exa, research_paper_search, twitter_search, company_research, crawling, competitor_finder, linkedin_search
-[EXA-MCP-DEBUG] Exa Search MCP server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from exa
-INFO:tool_gating_mcp.main:✓ Successfully connected to exa
-INFO:tool_gating_mcp.main:Proxy initialization complete
-INFO:     Application startup complete.
-INFO:watchfiles.main:1 change detected
-WARNING:  WatchFiles detected changes in 'src/tool_gating_mcp/main.py'. Reloading...
-INFO:     Shutting down
-INFO:     Waiting for application shutdown.
-INFO:tool_gating_mcp.main:Shutting down Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Shutdown complete
-INFO:     Application shutdown complete.
-INFO:     Finished server process [53702]
-INFO:watchfiles.main:3 changes detected
-INFO:fastapi_mcp.server:No auth config provided, skipping auth setup
-INFO:fastapi_mcp.server:MCP server listening at /mcp
-INFO:     Started server process [53756]
-INFO:     Waiting for application startup.
-INFO:tool_gating_mcp.main:Starting Tool Gating MCP Proxy...
-INFO:tool_gating_mcp.main:Connecting to MCP servers...
-INFO:tool_gating_mcp.main:Connecting to context7: Documentation search and library information
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for context7
-Context7 Documentation MCP Server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to context7
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 2 tools from context7
-INFO:tool_gating_mcp.main:✓ Successfully connected to context7
-INFO:tool_gating_mcp.main:Connecting to basic-memory: Simple key-value memory storage
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to basic-memory
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 9 tools from basic-memory
-INFO:tool_gating_mcp.main:✓ Successfully connected to basic-memory
-INFO:tool_gating_mcp.main:Connecting to puppeteer: Browser automation and web scraping
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for puppeteer
-/Users/andremachon/.local/share/uv/python/cpython-3.12.9-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:255: UserWarning: resource_tracker: There appear to be 8 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to puppeteer
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from puppeteer
-INFO:tool_gating_mcp.main:✓ Successfully connected to puppeteer
-INFO:tool_gating_mcp.main:Connecting to exa: Web search, research, and social media tools
-INFO:tool_gating_mcp.services.mcp_client_manager:Attempting to connect to MCP server: exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Created stdio streams for exa
-[EXA-MCP-DEBUG] Server initialized
-[EXA-MCP-DEBUG] Starting Exa MCP server with 7 tools: web_search_exa, research_paper_search, twitter_search, company_research, crawling, competitor_finder, linkedin_search
-[EXA-MCP-DEBUG] Exa Search MCP server running on stdio
-INFO:tool_gating_mcp.services.mcp_client_manager:Successfully initialized connection to exa
-INFO:tool_gating_mcp.services.mcp_client_manager:Discovered 7 tools from exa
-INFO:tool_gating_mcp.main:✓ Successfully connected to exa
-INFO:tool_gating_mcp.main:Proxy initialization complete
-INFO:     Application startup complete.
-INFO:watchfiles.main:1 change detected
-INFO:watchfiles.main:1 change detected
-INFO:watchfiles.main:51 changes detected
-INFO:watchfiles.main:2 changes detected

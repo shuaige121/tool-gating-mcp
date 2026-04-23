@@ -63,3 +63,6 @@ dmypy.json
 
 # uv
 .uv/
+
+# Runtime artifacts
+*.log
